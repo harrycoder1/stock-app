@@ -116,8 +116,9 @@ setLoading(false)
 
 }
 // 
-const buttonAction =async(action , id , quantity)=>{
+const buttonAction =async(action , id , quanti)=>{
   setLoadingAction(true)
+  const quantity = parseInt(quanti)
   const updatedStock =await stock.map(item => {
     if (item._id === id) {
       return { ...item, quantity:((action==="add")?quantity+1:quantity-1)};
