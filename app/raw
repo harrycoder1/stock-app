@@ -1,0 +1,12 @@
+db.inevntory.aggregate(
+    [
+        {
+            $match:{
+                 $or:[
+                    {name:{$regex:"ew" , $options:"i"} },
+                     {quantity:{$regex:"22" ,$options:"i"}} 
+                ]
+        }
+        }
+    ] 
+    )
