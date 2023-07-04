@@ -20,10 +20,10 @@ const action = data.action
 let  quantity = data.quantity
 let newq =quantity
 if(action==="add"){
-    newq = quantity+1
+    newq = parseInt(quantity)+1
 }
 if(action==="sub"){
-    newq =quantity-1
+    newq =parseInt( quantity)-1
 }
 console.log("this is my data "+data.id)
       try {

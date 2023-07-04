@@ -270,24 +270,25 @@ setTimeout(async() => {
               {dropDown.length === 0 && <div className='text-white drop-shadow-lg font-mono text-lg'>No Data Found</div>}
 
             {dropDown.length >0 &&<div className='text-white text-xl'>{categorySearch}</div> }  
-            <table>
-            <tbody>
+            <div className='flex justify-center items-center '>
+            <table className='w-full '>
+            <tbody className='w-full'>
          {dropDown.length >0 && dropDown?.map((item , i)=>{
           return (<motion.tr
 key={item._id}
-                      
+                      className='w-fit'
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       <td className="border px-4 py-2 text-white">{item.name}</td>
                       <td className="border px-4 py-2 text-white flex justify-between">
-                        <button disabled={Loading ||loadingAction} className='bg-green-500 disabled:bg-green-200 disabled:text-gray-500  text-white font-semibold font-xl px-4 rounded-lg  hover:bg-green-800 '
+                        <button disabled={Loading ||loadingAction} className='px-1 md:px-4 bg-green-500 text-white disabled:text-gray-500 disabled:bg-green-100 font-semibold font-xl  shadow-lg hover:bg-green-800 rounded-lg  py-0'
                         onClick={()=>{buttonAction("add" , item._id ,item.quantity)}}
                         >+</button>
-                        <input type='number'  value={item.quantity}  className='bg-transparent px-4 py-2 rounded-lg w-auto   min-w-[130px] order focus:outline-none focus:ring-0 focus:ring-bl ' onChange={(e)=>onDirectChangeQuantity(item._id  ,e)}/>
+                        <input type='number'  value={item.quantity}  className='bg-transparent px-1 py-0 md:px-4 md:py-2 rounded-lg w-[100px] md:w-auto md:m-2 order focus:outline-none focus:ring-0 focus:ring-bl ' onChange={(e)=>onDirectChangeQuantity(item._id  ,e)}/>
          
-                       <button disabled={Loading ||loadingAction}  className='bg-red-500 text-white disabled:text-gray-500 disabled:bg-red-100 font-semibold font-xl px-4 shadow-lg hover:bg-red-800 rounded-lg'
+                       <button disabled={Loading ||loadingAction}  className='px-1 md:px-4 bg-red-500 text-white disabled:text-gray-500 disabled:bg-red-100 font-semibold font-xl  shadow-lg hover:bg-red-800 rounded-lg  py-0'
                            onClick={()=>{buttonAction("sub" , item._id , item.quantity )}}
                        >-</button> </td>
                       
@@ -300,6 +301,7 @@ key={item._id}
         
         </tbody>
         </table>
+        </div>
 </div>
 </motion.div>
             <motion.div
